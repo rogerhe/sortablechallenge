@@ -24,3 +24,10 @@ for l in listings_file:
             match_results[p['product_name']].append(listing)
             break
 
+result_file = open('result.txt', 'w')
+for product, listings in match_results.items():
+    result_file.write(json.dumps({
+        'product_name':product,
+        'listings':listings,
+        })+"\n")
+    
